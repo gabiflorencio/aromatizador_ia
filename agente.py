@@ -13,14 +13,13 @@ class Sala:
         self.sala0 = False
         self.sala1 = False
         self.sala2 = False
-        self.sala3 = False
 
-    def mostrar (self, posicao):
+    def averiguar (self, posicao):
         print('========================')
         print('      AROMATIZADOR      ')
         print('========================')
 
-        if self.recepcao = False and self.sala0 == False and self.sala1 == False and self.sala2 == False and self.sala3 == False:
+        if self.recepcao = False and self.sala0 == False and self.sala1 == False and self.sala2 == False:
 
             print('Tudo cheiroso')
 
@@ -34,11 +33,7 @@ class Sala:
 
         elif self.sala2 == True:
 
-            print('Borrifar sala 2')
-
-        elif self.sala3 == True:
-
-            print('Borrifar sala 3')    
+            print('Borrifar sala 2')  
 
         else:
             pass
@@ -51,31 +46,48 @@ class Aromatizador:
     #Receptores e Atuadores
     def movimentar (self, recepcao, sala0, sala1, sala2, sala3):
         if self.posicao == 0 and recepcao == False:
-            self.posição = 2
-        elif self.posicao == 0 and sala0 == False:
+            self.posição = 1
+        elif self.posicao == 1 and sala0 == False:
             self.posição = 2
         elif self.posicao == 2 and sala1 == False:
-            self.posicao = 4
-        elif self.posicao == 4 and sala2 == False:
-            self.posicao = 5
-        elif self.posicao == 5 and sala3 == False:
-            self.posicao = 4        
+            self.posicao = 3
+        elif self.posicao == 3 and sala2 == False:
+            self.posicao = 0     
         else:
             pass
     
-    def borrifar (self, recepcao, sala0, sala1, sala2, sala3) :
+    #aqui é preciso contar a incidencia de F e M na lista de pessoas e comparar qual dos duas é maior
+    def borrifar (self, recepcao, sala0, sala1, sala2) :
         if self.posicao == 0 and recepcao == True:
+            if nF >= nM:
+                print ('Recepção borrifada com arome doce.')
+                recepcao = False
+            else:
+                 print ('Recepção borrifada com arome comum.')
+                recepcao = False
+        elif self.posicao == 1 and sala0 == True:
             if nF > nM:
-                return False, True
+                print ('Sala0 borrifada com arome doce.')
+                recepcao = False
             else:
-                return False, False
-        elif self.posicao == 1 and ladoB == True:
-            if ladoA == True:
-                return True, False
+                 print ('Sala0 borrifada com arome comum.')
+                recepcao = False
+        elif self.posicao == 2 and sala1 == True:
+            if nF > nM:
+                print ('Sala1 borrifada com arome doce.')
+                recepcao = False
             else:
-                return False, False
+                 print ('Sala1 borrifada com arome comum.')
+                recepcao = False
+        elif self.posicao == 3 and sala2 == True:
+            if nF > nM:
+                print ('Sala2 borrifada com arome doce.')
+                recepcao = False
+            else:
+                 print ('Sala2 borrifada com arome comum.')
+                recepcao = False
         else:
-            aspirador.movimentar(ladoA, ladoB)
+            aromatizador.movimentar(ladoA, ladoB)
             return ladoA, ladoB
 
 #menu de opções
