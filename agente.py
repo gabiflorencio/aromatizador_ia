@@ -2,7 +2,7 @@
 # class Alunos: clara = (F, discente), claudio = (M, discente), luis = (M, discente), paloma = (F,discente), valvan = (, discente), gabriela = (F, discente), manuel = (F, discente)
 #if nF > nM: borrifar aroma doce
 #else: borrifar aroma comum
-#
+#funcao time.sleep(360): depois de 1h tudo volta pra True
 
 import os, time
 
@@ -49,8 +49,10 @@ class Aromatizador:
         self.posicao = 0
     
     #Receptores e Atuadores
-    def movimentar (self, sala0, sala1, sala2, sala3):
-        if self.posicao == 0 and sala0 == False:
+    def movimentar (self, recepcao, sala0, sala1, sala2, sala3):
+        if self.posicao == 0 and recepcao == False:
+            self.posição = 2
+        elif self.posicao == 0 and sala0 == False:
             self.posição = 2
         elif self.posicao == 2 and sala1 == False:
             self.posicao = 4
@@ -61,9 +63,9 @@ class Aromatizador:
         else:
             pass
     
-    def limpar (self, ladoA, ladoB) :
-        if self.posicao == 0 and ladoA == True:
-            if ladoB == True:
+    def borrifar (self, recepcao, sala0, sala1, sala2, sala3) :
+        if self.posicao == 0 and recepcao == True:
+            if nF > nM:
                 return False, True
             else:
                 return False, False
