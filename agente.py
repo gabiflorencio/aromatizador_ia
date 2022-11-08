@@ -1,53 +1,63 @@
+# listas
+# class Alunos: clara = (F, discente), claudio = (M, discente), luis = (M, discente), paloma = (F,discente), valvan = (, discente), gabriela = (F, discente), manuel = (F, discente)
+#if nF > nM: borrifar aroma doce
+#else: borrifar aroma comum
+#
+
 import os, time
 
 class Sala:
     #Ambiente
     def __init__(self):
-        self.ladoA = False
-        self.ladoB = False
+        self.recepcao = False
+        self.sala0 = False
+        self.sala1 = False
+        self.sala2 = False
+        self.sala3 = False
 
     def mostrar (self, posicao):
         print('========================')
-        print('      ASPIRADOR         ')
+        print('      AROMATIZADOR      ')
         print('========================')
-        print('------------------------')
-        if posicao == 0:
-            print('aspirador        \n')
-        elif posicao == 1:
-            print('       aspirador \n')
+
+        if self.recepcao = False and self.sala0 == False and self.sala1 == False and self.sala2 == False and self.sala3 == False:
+
+            print('Tudo cheiroso')
+
+        elif self.sala0 == True:
+  
+            print('Borrifar sala 0')
+
+        elif self.sala1 == True:
+
+            print('Borrifar sala 1')
+
+        elif self.sala2 == True:
+
+            print('Borrifar sala 2')
+
+        elif self.sala3 == True:
+
+            print('Borrifar sala 3')    
+
         else:
             pass
 
-        if self.ladoA == False and self.ladoB == False:
-            print('////////////////////')
-            print(' Limpo        Limpo ')
-            print('////////////////////')
-        elif self.ladoA == True and self.ladoB == False:
-            print('////////////////////')
-            print(' Sujo         Limpo ')
-            print('////////////////////')
-        elif self.ladoA == False and self.ladoB == True:
-            print('////////////////////')
-            print(' Limpo         Sujo ')
-            print('////////////////////')
-        elif self.ladoA == True and self.ladoB == True:
-            print('////////////////////')
-            print(' Sujo          Sujo ')
-            print('////////////////////')
-        else:
-            pass
-
-class Aspirador:
+class Aromatizador:
     #Agente
     def __init__(self):
         self.posicao = 0
     
     #Receptores e Atuadores
-    def movimentar (self, ladoA, ladoB):
-        if self.posicao == 0 and ladoA == False:
-            self.posição =1
-        elif self.posicao == 1 and ladoB == False:
-            self.posicao = 0
+    def movimentar (self, sala0, sala1, sala2, sala3):
+        if self.posicao == 0 and sala0 == False:
+            self.posição = 2
+        elif self.posicao == 2 and sala1 == False:
+            self.posicao = 4
+        elif self.posicao == 4 and sala2 == False:
+            self.posicao = 5
+        elif self.posicao == 5 and sala3 == False:
+            self.posicao = 4        
         else:
             pass
     
