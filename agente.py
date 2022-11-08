@@ -8,62 +8,72 @@ class Sala:
 
     def mostrar (self, posicao):
         print('========================')
-        print('ASPIRADOR')
+        print('      ASPIRADOR         ')
         print('========================')
-        print('========================')
-        if posicao == 0;
+        print('------------------------')
+        if posicao == 0:
             print('aspirador        \n')
         elif posicao == 1:
-            print('               aspirador \n')
-        else:
-            pass
-        if self.ladoA == False and self.ladoB == False:
-            print('////////////////////')
-            print('////////////////')
-        elif self.ladoA == True and self.ladoB == False:
-            print('////////////////////')
-            print('////////////////')
-        elif self.ladoA == False and self.ladoB == True:
-            print('////////////////////')
-            print('////////////////')
-        elif self.ladoA == True and self.ladoB == True:
-            print('////////////////////')
-            print('////////////////')
+            print('       aspirador \n')
         else:
             pass
 
-    class Aspirador:
-        #Agente
-        def __init__(self):
+        if self.ladoA == False and self.ladoB == False:
+            print('////////////////////')
+            print(' Limpo        Limpo ')
+            print('////////////////////')
+        elif self.ladoA == True and self.ladoB == False:
+            print('////////////////////')
+            print(' Sujo         Limpo ')
+            print('////////////////////')
+        elif self.ladoA == False and self.ladoB == True:
+            print('////////////////////')
+            print(' Limpo         Sujo ')
+            print('////////////////////')
+        elif self.ladoA == True and self.ladoB == True:
+            print('////////////////////')
+            print(' Sujo          Sujo ')
+            print('////////////////////')
+        else:
+            pass
+
+class Aspirador:
+    #Agente
+    def __init__(self):
+        self.posicao = 0
+    
+    #Receptores e Atuadores
+    def movimentar (self, ladoA, ladoB):
+        if self.posicao == 0 and ladoA == False:
+            self.posição =1
+        elif self.posicao == 1 and ladoB == False:
             self.posicao = 0
-        
-        #Receptores e Atuadores
-        def movimentar (self, ladoA, ladoB):
-            if self.posicao == 0 and ladoA == False:
-                self.posição =1
-            elif self.posicao == 1 and ladoB == False:
-                self.posicao = 0
+        else:
+            pass
+    
+    def limpar (self, ladoA, ladoB) :
+        if self.posicao == 0 and ladoA == True:
+            if ladoB == True:
+                return False, True
             else:
-                pass
-        
-        def limpar (self, ladoA, ladoB) :
-            if self.posicao == 0 and ladoA == True:
-                if ladoB == True:
-                    return False, True
-                else:
-                    return False, False
-            elif self.posicao == 1 and ladoB == True:
-                if ladoA == True:
-                    return True, False
-                else:
-                    return False, False
+                return False, False
+        elif self.posicao == 1 and ladoB == True:
+            if ladoA == True:
+                return True, False
             else:
-                aspirador.movimentar(ladoA, ladoB)
-                return ladoA, ladoB
+                return False, False
+        else:
+            aspirador.movimentar(ladoA, ladoB)
+            return ladoA, ladoB
 
 #menu de opções
 def menu_opcoes():
-    print('////////////////')
+    print('--------------------')
+    print('(1) Sujar Esquerda')
+    print('(2) Sujar Direita')
+    print('(3) Agir')
+    print('(4) Encerrar')
+    print('--------------------')
 
     try:
         opcao = int(input('Opção: '))
@@ -71,11 +81,11 @@ def menu_opcoes():
         print('Opção inválida')
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
-        sala.mostrar(aspirar.posicao)
+        sala.mostrar(aspirador.posicao)
         menu_opcoes()
 
     if opcao == 1:
-        sala.ladoA.ladoB = True
+        sala.ladoA = True
         return True
     elif opcao == 2:
         sala.ladoB = True
