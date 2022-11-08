@@ -45,7 +45,7 @@ class Aspirador:
     #Receptores e Atuadores
     def movimentar (self, ladoA, ladoB):
         if self.posicao == 0 and ladoA == False:
-            self.posição =1
+            self.posição = 1
         elif self.posicao == 1 and ladoB == False:
             self.posicao = 0
         else:
