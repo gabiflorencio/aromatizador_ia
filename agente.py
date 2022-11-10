@@ -1,10 +1,34 @@
-# listas
-# class Alunos: clara = (F, discente), claudio = (M, discente), luis = (M, discente), paloma = (F,discente), valvan = (, discente), gabriela = (F, discente), manuel = (F, discente)
 #if nF > nM: borrifar aroma doce
 #else: borrifar aroma comum
 #funcao time.sleep(360): depois de 1h tudo volta pra True
 
 import os, time
+nF = 0
+nM = 0
+
+class Pessoas:
+    #Pessoas que podem circular nas salas
+    def __init__(self, F, M, ND, docente, discente):
+        Clara    = (F, discente)
+        Claudio  = (M, discente)
+        Luis     = (M, discente)
+        Paloma   = (F, discente)
+        Valvan   = (ND, discente)
+        Gabriela = (F, discente)
+        Manuel   = (M, discente)
+        Clarice  = (F, discente)
+        Carlos   = (M, discente)
+        Aluisio  = (M, discente)
+        Pamela   = (F, discente)
+        Leona    = (F, discente)
+        Gloria   = (F, discente)
+        Albert   = (M, discente)
+        Manuele  = (F, discente)
+        Patricia = (F, docente)
+        Valeria  = (F, docente)
+        Igor     = (M, docente)
+        Renato   = (M, docente)
+        Rayanne  = (F, docente)
 
 class Sala:
     #Ambiente
@@ -19,7 +43,7 @@ class Sala:
         print('      AROMATIZADOR      ')
         print('========================')
 
-        if self.recepcao = False and self.sala0 == False and self.sala1 == False and self.sala2 == False:
+        if self.recepcao == False and self.sala0 == False and self.sala1 == False and self.sala2 == False:
 
             print('Tudo cheiroso')
 
@@ -63,72 +87,32 @@ class Aromatizador:
                 print ('Recepção borrifada com arome doce.')
                 recepcao = False
             else:
-                 print ('Recepção borrifada com arome comum.')
+                print ('Recepção borrifada com arome comum.')
                 recepcao = False
         elif self.posicao == 1 and sala0 == True:
             if nF > nM:
                 print ('Sala0 borrifada com arome doce.')
                 recepcao = False
             else:
-                 print ('Sala0 borrifada com arome comum.')
+                print ('Sala0 borrifada com arome comum.')
                 recepcao = False
         elif self.posicao == 2 and sala1 == True:
             if nF > nM:
                 print ('Sala1 borrifada com arome doce.')
                 recepcao = False
             else:
-                 print ('Sala1 borrifada com arome comum.')
+                print ('Sala1 borrifada com arome comum.')
                 recepcao = False
         elif self.posicao == 3 and sala2 == True:
             if nF > nM:
                 print ('Sala2 borrifada com arome doce.')
                 recepcao = False
             else:
-                 print ('Sala2 borrifada com arome comum.')
+                print ('Sala2 borrifada com arome comum.')
                 recepcao = False
         else:
-            aromatizador.movimentar(ladoA, ladoB)
-            return ladoA, ladoB
-
-#menu de opções
-def menu_opcoes():
-    print('--------------------')
-    print('(1) Sujar Esquerda')
-    print('(2) Sujar Direita')
-    print('(3) Agir')
-    print('(4) Encerrar')
-    print('--------------------')
-
-    try:
-        opcao = int(input('Opção: '))
-    except:
-        print('Opção inválida')
-        time.sleep(2)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        sala.mostrar(aspirador.posicao)
-        menu_opcoes()
-
-    if opcao == 1:
-        sala.ladoA = True
-        return True
-    elif opcao == 2:
-        sala.ladoB = True
-    elif opcao == 3:
-        sala.ladoA, sala.ladoB = aspirador.limpar(sala.ladoA, sala.ladoB)
-    elif opcao == 4:
-        return False
-    else:
-        print('Opção inválida.')
-        time.sleep(2)
-        os.system('cls' if os.name == 'nt' else 'clear')
-        sala.mostra(aspirador.posicao)
-        menu_opcoes()
+            Aromatizador.movimentar(recepcao, sala0, sala1, sala2)
+            return recepcao, sala0, sala1, sala2
 
 sala = Sala()
-aspirador = Aspirador()
-
-prog = True
-while prog == True:
-    os.system('cls' if os.name == 'nt' else 'clear')
-    sala.mostrar(aspirador.posicao)
-    prog = menu_opcoes()
+aromatizador = Aromatizador()
