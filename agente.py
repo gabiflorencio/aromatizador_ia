@@ -165,30 +165,35 @@ def qual_aroma():
 
 #aqui a gente vai checar se a sala precisa ser borrifada ou nao
 
-def averiguar (self, posicao):
-    print('========================')
-    print('      AROMATIZADOR      ')
-    print('========================')
+def onde_borrifar ():
 
-    if self.recepcao == False and self.sala0 == False and self.sala1 == False and self.sala2 == False:
-
+    if recepcaoB == False and sala0B == False and sala1B == False and sala2B == False:
+        posicao = 0
         print('Tudo cheiroso')
-
-    elif self.sala0 == True:
-
+        return posicao
+            
+    elif recepcao == True:
+        posicao = 0
         print('Borrifar sala 0')
-
-    elif self.sala1 == True:
-
+        return posicao
+        
+    elif sala0 == True:
+        posicao = 1
+        print('Borrifar sala 0')
+        return posicao
+        
+    elif sala1 == True:
+        posicao = 2
         print('Borrifar sala 1')
-
-    elif self.sala2 == True:
-
-        print('Borrifar sala 2')  
-
+        return posicao
+        
+    elif sala2 == True:
+        posicao = 3
+        print('Borrifar sala 2')
+        return posicao
+         
     else:
         pass
-
 #aqui vai ser controlado o deslocamento do borrifador nas salas
     
     #Receptores e Atuadores
