@@ -29,10 +29,15 @@ pessoas = [
 
 # listas a serem preenchidas com quem tiver em cada sala
 
+# listas a serem preenchidas com quem tiver em cada sala
+
 recepcao = []
-sala0    = []
-sala1    = []
-sala2    = []
+sala0 = []
+sala1 = []
+sala2 = []
+
+# variáveis para guardar informação usada na decisão do aroma borrifado
+
 recepcaoM = 0
 recepcaoF = 0
 sala0M = 0
@@ -41,6 +46,14 @@ sala1M = 0
 sala1F = 0
 sala2M = 0
 sala2F = 0
+posicao = 0
+
+# Boleanos para averiguar se as salas precisam ser borrifadas
+
+recepcaoB = False
+sala0B = False
+sala1B = False
+sala2B = False
 
 # função pra percorrer a lista de pessoas e colocar aleatoriamente todas as pessoas em cada sala, de 0 a 4 faz com que 
 # nem todos estejam nas 4 salas.
