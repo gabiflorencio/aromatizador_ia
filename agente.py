@@ -1,34 +1,94 @@
-#if nF > nM: borrifar aroma doce
-#else: borrifar aroma comum
-#funcao time.sleep(360): depois de 1h tudo volta pra True
-
 import os, time
-nF = 0
-nM = 0
+import array as arr 
+import random
+import time
 
-class Pessoas:
-    #Pessoas que podem circular nas salas
-    def __init__(self, F, M, ND, docente, discente):
-        Clara    = (F, discente)
-        Claudio  = (M, discente)
-        Luis     = (M, discente)
-        Paloma   = (F, discente)
-        Valvan   = (ND, discente)
-        Gabriela = (F, discente)
-        Manuel   = (M, discente)
-        Clarice  = (F, discente)
-        Carlos   = (M, discente)
-        Aluisio  = (M, discente)
-        Pamela   = (F, discente)
-        Leona    = (F, discente)
-        Gloria   = (F, discente)
-        Albert   = (M, discente)
-        Manuele  = (F, discente)
-        Patricia = (F, docente)
-        Valeria  = (F, docente)
-        Igor     = (M, docente)
-        Renato   = (M, docente)
-        Rayanne  = (F, docente)
+#lista das pessoas que vao circular na coordencao
+
+pessoas = [
+    ['Clara',    'F',  'discente'],
+    ['Claudio',  'M',  'discente'],
+    ['Luis',     'M',  'discente'],
+    ['Paloma',   'F',  'discente'],
+    ['Valvan',   'ND', 'discente'],
+    ['Gabriela', 'M',  'discente'],
+    ['Manuel',   'M',  'discente'],
+    ['Clarice',  'F',  'discente'],
+    ['Carlos',   'M',  'discente'],
+    ['Aluisio',  'M',  'discente'],
+    ['Pamela',   'F',  'discente'],
+    ['Leona',    'F',  'discente'],
+    ['Gloria',   'F',  'discente'],
+    ['Albert',   'M',  'discente'],
+    ['Carlos',   'M',  'discente'],
+    ['Manuele',  'F',  'discente'],
+    ['Patricia', 'F',  'docente'],
+    ['Valeria',  'F',  'docente'],
+    ['Igor',     'M',  'docente'],
+    ['Renato',   'M',  'docente'],
+    ['Rayanne',  'F',  'docente']
+]
+
+#listas a serem preenchidas com quem tiver em cada sala
+
+recepcao = []
+sala1    = []
+sala2    = []
+sala3    = []
+
+# função pra percorrer a lista de pessoas e colocar aleatoriamente todas as pessoas em cada sala
+# no final ja é comparado se tem mais M ou F na sala, assim dando o comando de borrifar tal aroma nas salas, talves seja melhor separar
+# isso pra nao ficar em um unico bloco o codigo inteiro
+
+def movimento_na_coordenacao():
+    for i in range(0,9):
+
+    for i in range(len(pessoas)):
+
+        numeroSala = random.randint(0,3)
+        
+        if numeroSala == 0:
+            recepcao.append(pessoas[i])
+        
+        elif numeroSala == 1:
+            sala1.append(pessoas[i])
+        
+        elif numeroSala == 2:
+            sala2.append(pessoas[i])
+            
+        elif numeroSala == 3:
+            sala3.append(pessoas[i])
+
+    recepcaoM = 0;
+    recepcaoF = 0;
+
+    for i in range(len(recepcao)):
+        if recepcao[i][1] == 'M':
+            recepcaoM += 1;
+            print(recepcao[i])
+        else:
+            recepcaoF += 1;
+            print(recepcao[i])
+
+    if recepcaoM > recepcaoF:
+        #faltou alterar valor boleane da recepcao
+        print('aroma comum borrifado na recepcao.')
+        
+    else:
+        print('aroma doce borrifado na recepcao.')
+    
+    #repetir esse for pras outras salas
+    
+    #aqui os valores são resetados pra que o processo seja refeito sem colocar a mesma pessoas 2x na mesma sala ou ao mesmo tempo em salas diferentes
+    
+    recepcao = []
+    sala1 = []
+    sala2 = []
+    sala3 = []
+
+    time.sleep(1)
+
+#aqui a gente vai checar se a sala precisa ser borrifada ou nao
 
 class Sala:
     #Ambiente
@@ -62,6 +122,8 @@ class Sala:
         else:
             pass
 
+#aqui vai ser controlado o deslocamento do borrifador nas salas
+
 class Aromatizador:
     #Agente
     def __init__(self):
@@ -81,6 +143,12 @@ class Aromatizador:
             pass
     
     #aqui é preciso contar a incidencia de F e M na lista de pessoas e comparar qual dos duas é maior
+    
+
+    ######### nao é mais preciso que seja feito dessa forma, pois acima o codigo foi alterado,  ##################
+    ######### mas como peciso ir pra ufma nao consegui alterar o fim do codigo <3               ##################
+
+
     def borrifar (self, recepcao, sala0, sala1, sala2) :
         if self.posicao == 0 and recepcao == True:
             if nF >= nM:
