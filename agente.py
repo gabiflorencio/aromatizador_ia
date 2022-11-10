@@ -1,6 +1,5 @@
 import time
 import random
-import time
 
 #listas das pessoas que vao circular na coordencao
 
