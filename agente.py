@@ -53,15 +53,19 @@ def movimento_na_coordenacao():
         
         if numeroSala == 0:
             recepcao.append(pessoas[i])
+            return recepcao
         
         elif numeroSala == 1:
             sala0.append(pessoas[i])
+            return sala0
         
         elif numeroSala == 2:
             sala1.append(pessoas[i])
+            return sala1
             
         elif numeroSala == 3:
             sala2.append(pessoas[i])
+            return sala2
         else:  
             pass
 
@@ -84,9 +88,13 @@ def qual_aroma():
 
         if recepcaoM > recepcaoF:
             print('aroma comum borrifado na recepcao.')
-            
+            recepcaoM = 1
+            return (recepcaoM)
+
         else:
             print('aroma doce borrifado na recepcao.')
+            recepcaoF = 1
+            return (recepcaoF)
 
     def qual_aroma_sala0():
         
@@ -100,9 +108,13 @@ def qual_aroma():
 
         if sala0M > sala0F:
             print('aroma comum borrifado na sala 0.')
+            sala0M = 1
+            return sala0M
             
         else:
             print('aroma doce borrifado na sala 0.')
+            sala0F = 1
+            return sala0F
 
     def qual_aroma_sala1():
         
@@ -116,9 +128,13 @@ def qual_aroma():
 
         if sala1M > sala1F:
             print('aroma comum borrifado na sala 1.')
+            sala1M = 1
+            return sala1M
                 
         else:
             print('aroma doce borrifado na sala 1.')
+            sala1F = 1
+            return sala1F
 
     def qual_aroma_sala2():
         
@@ -132,9 +148,13 @@ def qual_aroma():
 
         if sala2M > sala2F:
             print('aroma comum borrifado na sala 2.')
+            sala2M = 1
+            return sala2M
             
         else:
             print('aroma doce borrifado na sala 2.')
+            sala2F = 1
+            return sala2F
     
 
 # time.sleep(1)
