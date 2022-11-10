@@ -155,6 +155,11 @@ def qual_aroma():
             print('aroma doce borrifado na sala 2.')
             sala2F = 1
             return sala2F
+        
+    qual_aroma_recepcao()
+    qual_aroma_sala0()
+    qual_aroma_sala1()
+    qual_aroma_sala2()
     
 
 # time.sleep(1)
