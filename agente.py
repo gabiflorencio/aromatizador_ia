@@ -1,34 +1,4 @@
-import random
-from ambiente import *
-
-def movimento_na_coordenacao():
-    for i in range(len(pessoas)):
-        numeroSala = random.randint(0, 4)
-        if numeroSala == 0:
-            recepcao.append(pessoas[i])
-        elif numeroSala == 1:
-            sala0.append(pessoas[i])
-        elif numeroSala == 2:
-            sala1.append(pessoas[i])
-        elif numeroSala == 3:
-            sala2.append(pessoas[i])
-        else:
-            pass
- # comparando se tem mais M ou F na sala, assim dando o comando de borrifar um aroma nas salas, repetindo-se o processo
- # 10 vezes, cada vez com com a ordem diferente de pessoas em cada sala
-def qual_aroma_recepcao():
-    recepcaoM = 0
-    recepcaoF = 0
-    # Comparando se sem mais M ou F na recpcao
-    for i in range(len(recepcao)):
-        if recepcao[i][1] == 'M':
-            recepcaoM += 1
-        else:
-            recepcaoF += 1
-    if recepcaoM > recepcaoF:
-        print('aroma comum borrifado na recepcao.')
-        recepcaoM = 1
-    else:
+      else:
         print('aroma doce borrifado na recepcao.')
         recepcaoF = 1
 def qual_aroma_sala0():
